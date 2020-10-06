@@ -1,0 +1,34 @@
+:host{
+    --button-font-size-small: 1.4rem;
+    --button-height-small: 36px;
+    --button-width: 100%;
+    --icon-touch-target: var(--touch-target-large);
+    --button-padding-1: 0 var(--spacing-03);
+    --button-padding-2: 0;
+    --button-padding-3: 0;
+    --button-tertiary-border-size: 2px;
+    --button-font-family: var(--global-font-family);
+    --button-border-radius: var(--border-radius);
+    --button-font-weight: var(--font-weight-semi-bold);
+    --button-primary-background-color: var(--primary);
+    --button-primary-font-color: var(--neutral);
+    --button-secondary-background-color: var(--secondary);
+    --button-secondary-font-color: var(--neutral);
+    --button-tertiary-background-color: var(--neutral);
+    --button-tertiary-font-color: var(--secondary);
+    --button-icon-color: currentColor;
+    --button-icon-withlabel-icon-color: var(--secondary);
+    --button-icon-withlabel-font-color: var(--secondary);
+    --button-floating-background-color: var(--neutral);
+    --button-floating-box-shadow: 0 8px 12px 3px rgba(0, 0, 0, 0.16);
+    --button-floating-font-color: var(--secondary);
+    --button-floating-border-radius: 4px;
+    --button-link-font-color: var(--links);
+    --button-touch-target-small: var(--touch-target-small);
+    --button-touch-target-medium: var(--touch-target-medium);
+    --button-touch-target-large: var(--touch-target-large);
+    --link-touch-target: var(--touch-target-small);
+    --float-button-touch-targe: var(--touch-target-medium);
+    --icon-and-text-touch-target: var(--touch-target-small);
+    --icon-touch-target: var(--touch-target-large);
+}

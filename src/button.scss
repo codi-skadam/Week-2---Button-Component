@@ -1,0 +1,122 @@
+@import './button-map.scss';
+
+:host {
+    .button-container {
+      display: unset;
+    }
+
+    .orxe-button {
+      border-width: 0;
+      position: relative;
+      overflow: hidden;
+      font-family: var(--button-font-family);
+      font-weight: var(--button-font-weight);
+      cursor: pointer;
+      slot {
+        pointer-events: none;
+      }
+      &:disabled {
+        cursor: default;
+      }
+    }
+    .orxe-btn--extra-small {
+      font-size: 1.2rem;
+      height: 24px;
+      min-width: 48px;
+      max-width: 100%;
+      padding: var(--button-padding-1);
+    }
+    .orxe-btn--small {
+      font-size: var(--button-font-size-small);
+      min-height: var(--button-touch-target-small);
+      min-width: 80px;
+      max-width: 100%;
+      width: var(--button-width);
+      padding: var(--button-padding-2);
+    }
+    .orxe-btn--medium {
+      font-size: 1.6rem;
+      min-height: var(--button-touch-target-medium);
+      width: var(--button-width);
+      max-width: 100%;
+      min-width: 80px;
+      padding: var(--button-padding-3);
+    }
+    .orxe-btn--large {
+      font-size: 1.6rem;
+      min-height: var(--button-touch-target-large);
+      max-width: 100%;
+      width: var(--button-width);
+      min-width: 80px;
+      padding: var(--button-padding-3);
+    }
+    .orxe-text {
+      display: inline-flex;
+      align-items: center;
+      max-width: 100%;
+      padding: 0 var(--spacing-03);
+      font-weight: var(--button-font-weight);
+      color: var(--button-link-font-color);
+      text-decoration: underline;
+      min-height: var(--link-touch-target);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      slot {
+        pointer-events: none;
+      }
+    }
+    .orxe-text--large {
+      font-size: 1.4rem;
+    }
+    .orxe-text--small {
+      font-size: 1.2rem;
+    }
+    .primary {
+      background-color: var(--button-primary-background-color);
+      color: var(--button-primary-font-color);
+      border-radius: var(--button-border-radius);
+      border: 2px solid var(--button-primary-background-color);
+      &:disabled {
+        border: 2px solid var(--disabled-text);
+        background-color: var(--disabled-text);
+        color: var(--button-primary-font-color);
+        box-shadow: none;
+      }
+      .ripple-effect {
+        background-color: var(--neutral);
+      }
+    }
+
+    .secondary {
+      background-color: var(--button-secondary-background-color);
+      color: var(--button-secondary-font-color);
+      border-radius: var(--button-border-radius);
+      border: 2px solid var(--button-secondary-background-color);
+      &:disabled {
+        border: 2px solid var(--disabled-text);
+        background-color: var(--disabled-text);
+        color: var(--button-secondary-font-color);
+        box-shadow: none;
+      }
+      .ripple-effect {
+        background-color: var(--neutral);
+      }
+    }
+
+    .tertiary {
+      background-color: var(--button-tertiary-background-color);
+      color: var(--button-tertiary-font-color);
+      border: var(--button-tertiary-border-size) solid var(--button-tertiary-font-color);
+      border-radius: var(--button-border-radius);
+      &:disabled {
+        background-color: var(--button-tertiary-background-color);
+        color: var(--disabled-text);
+        border: var(--button-tertiary-border-size) solid var(--disabled-text);
+      }
+    }
+    .ripple-effect {
+      background-color: var(--separator-01);
+    }
+    
+  }
