@@ -14,7 +14,6 @@ export default class OrxeButton extends LitElement {
   @property({ type: String, reflect: true, attribute: 'button-type' })
   buttonType = 'primary';
 
-
     /**
    *
    * @memberof OrxeButton
@@ -34,7 +33,7 @@ export default class OrxeButton extends LitElement {
      /**
    *
    * @memberof OrxeButton
-   * This is used to give the size of a button(large,medium,small,extra small)
+   * This is used to give the icon type
    */
   @property({ type: String, reflect: true, attribute: 'icon' })
   icon = '';
@@ -43,7 +42,7 @@ export default class OrxeButton extends LitElement {
       /**
    *
    * @memberof OrxeButton
-   * This is used to give the size of a button(large,medium,small,extra small)
+   * This is used to disable the button
    */
   @property({ type: Boolean,attribute: 'disabled' })
   disabled = false;
@@ -54,24 +53,25 @@ export default class OrxeButton extends LitElement {
 
 returnIcon() {
       return html `
-  <orxe-icon
-    aria-label="ic-accessibility"
-    icon="ic-accessibility"
-    part="icon"
-    size="small"
-  ></orxe-icon>
-`;
+              <orxe-icon
+                aria-label=${this.icon}
+                icon=${this.icon}
+                part="icon"
+                size=${this.buttonSize}
+              ></orxe-icon>
+      `;
 }
 
   render() {
-    return html`
+    if(this.buttonType!=='floating'){
+      return html`
       <div class="button-container">
       ${
       (this.buttonType === 'text' || this.buttonType === 'icon' || this.buttonType === 'iconAndText')? 
        html`
       <a 
-      class="orxe-text orxe-text--small"
-      aria-label="${this.a11yLabel}"
+      class="orxe-text orxe-text--${this.buttonSize} ${this.buttonType==='text'?'orxe-text-underline':''}"
+      aria-label="${this.a11yLabel} "
       >
       ${this.icon !==''?this.returnIcon():''}
       ${this.buttonType !== 'icon'?html`<slot></slot>`:''}
@@ -92,9 +92,15 @@ returnIcon() {
       </button>
     `    
   }
-      
       </div>
     `;
+    } else if(this.buttonType === 'floating'){
+      return html`
+      <div class="floating-button-container">
+      <slot></slot>
+      </div>`;
+    }
+    
   }
 
   // static styles = styles;
