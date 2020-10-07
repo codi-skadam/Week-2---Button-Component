@@ -97,7 +97,13 @@ returnIcon() {
     } else if(this.buttonType === 'floating'){
       return html`
       <div class="floating-button-container">
+      <a 
+      class="floating-button"
+      aria-label="${this.a11yLabel} "
+      role="button"
+      >
       <slot></slot>
+      </a>
       </div>`;
     }
     

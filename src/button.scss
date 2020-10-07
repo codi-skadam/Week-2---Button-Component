@@ -2,8 +2,28 @@
 
 :host {
     .floating-button-container{
-      display: unset;
-      position: fixed;
+    max-width: 100%;
+    position: fixed;
+    z-index: var(--floating-button-z-index, 9);
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    .floating-button{
+      display: inline-flex;
+      align-items: center;
+      box-shadow: var(--button-floating-box-shadow);
+      border-radius: var(--button-floating-border-radius);
+      max-width: 100%;
+      background-color: var(--button-floating-background-color);
+      height: 36px;
+      padding: 0 var(--spacing-03);
+      font-weight: var(--button-font-weight);
+      color: var(--button-link-font-color);
+    }
+      // display: unset;
+      // position: fixed;
+      // bottom: 5%;
+      // left: 50%;
     }
     .button-container {
       display: unset;
