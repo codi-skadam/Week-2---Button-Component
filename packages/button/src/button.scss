@@ -8,17 +8,26 @@
     bottom: 1rem;
     left: 50%;
     transform: translateX(-50%);
-    .floating-button{
+    .floating-button-wrapper{
       display: inline-flex;
       align-items: center;
       box-shadow: var(--button-floating-box-shadow);
       border-radius: var(--button-floating-border-radius);
       max-width: 100%;
       background-color: var(--button-floating-background-color);
-      height: 36px;
-      padding: 0 var(--spacing-03);
-      font-weight: var(--button-font-weight);
-      color: var(--button-link-font-color);
+      .floating-button-cell{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        height: 36px;
+        padding: 0 var(--spacing-03);
+        font-weight: var(--button-font-weight);
+        color: var(--button-link-font-color);
+        &:last-child{
+          border-left: 1px solid lightgray;
+        }
+      }
     }
       // display: unset;
       // position: fixed;
@@ -27,7 +36,6 @@
     }
     .button-container {
       display: unset;
-
       .orxe-button {
         border-width: 0;
         position: relative;
@@ -37,6 +45,9 @@
         cursor: pointer;
         slot {
           pointer-events: none;
+          &:first-child{
+            border-right: 1px solid lightgray;
+          }
         }
         &:disabled {
           cursor: default;

@@ -6,6 +6,14 @@ import '@orxe-components/icon';
 
 @customElement('orxe-button')
 export default class OrxeButton extends LitElement {
+
+
+
+  constructor(){
+    super();
+    this.buttonType = 'primary';
+    this.buttonSize = 'large';
+  }
   /**
    *
    * @memberof OrxeButton
@@ -38,6 +46,14 @@ export default class OrxeButton extends LitElement {
   @property({ type: String, reflect: true, attribute: 'icon' })
   icon = '';
 
+     /**
+   *
+   * @memberof OrxeButton
+   * This is used to give the icon type
+   */
+  @property({ type: Array, reflect: true, attribute: 'call-to-actions' })
+  callToActions = [];
+
 
       /**
    *
@@ -62,7 +78,7 @@ returnIcon() {
       `;
 }
 
-  render() {
+  render() {    
     if(this.buttonType!=='floating'){
       return html`
       <div class="button-container">
@@ -95,15 +111,23 @@ returnIcon() {
       </div>
     `;
     } else if(this.buttonType === 'floating'){
+      console.log(this.callToActions);
+      
       return html`
       <div class="floating-button-container">
+      <div class="floating-button-wrapper">
       <a 
-      class="floating-button"
-      aria-label="${this.a11yLabel} "
       role="button"
       >
-      <slot></slot>
+          <slot name="callToAction1"  class="floating-button-cell"></slot>
       </a>
+      <a 
+      role="button"
+      > 
+          <slot name="callToAction2"  class="floating-button-cell"></slot>
+      </a>
+      </div>
+         
       </div>`;
     }
     

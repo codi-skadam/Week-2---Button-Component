@@ -4,24 +4,23 @@ import { axe, toHaveNoViolations } from '@orxe-devkit/axe';
 expect.extend(toHaveNoViolations);
 
 describe('orxe-button-axe', () => {
-  it('', () => {
-    expect(true).toBeTruthy();
+  let button;
+  beforeEach(function () {
+      OrxeButton;
+      document.body.appendChild(document.createElement('orxe-button'));
+      button = document.querySelector('orxe-button');
+  });
+  afterEach(function () {
+      button.remove();
   });
   
-  let Button;
-
-  beforeEach(async () => {
-    OrxeButton;
-    document.body.appendChild(document.createElement('Button'));
-    Button = document.querySelector('Button') as OrxeButton;
-  });
-
-  afterEach(() => {
-    Button.remove();
-  });
-
-  it('should support all WCAG Accessibility Rules. when default toolbar is rendered', async () => {
-    const result = await axe(Button);
+  async function setProperty(property, value) {
+    button[property] = value;
+    await button.requestUpdate();
+}
+  it('should support all WCAG Accessibility Rules. when default button is rendered', async () => {
+    await setProperty('a11yLabel', 'button');
+    const result = await axe(button);
     expect(result).toHaveNoViolations();
   });
 });
